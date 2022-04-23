@@ -8,6 +8,7 @@ Array.prototype.toUpperCase = function() {
     'sALchiPapa',
     'emPaNAdaS',
     ].toUpperCase();
+    console.log('Comidas típicas')
     for (const comfav of comida) {
-    console.log(comfav);
+    console.log(`[-] ${comfav}`);
   }
