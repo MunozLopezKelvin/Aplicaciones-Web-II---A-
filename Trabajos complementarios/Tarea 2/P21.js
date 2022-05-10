@@ -17,7 +17,7 @@ async function buscarcli(idcli)
 //imprimimos los datos de cliente siempre y cuando las condiciones se cumplan, en este caso se busca el id del cliente 1
 (async ()=> {
     try {
-        const cliente =   await buscarcli(5);
+        const cliente =   await buscarcli(1);
         console.log(cliente);
     } catch (error) {
         console.log(error.message)
