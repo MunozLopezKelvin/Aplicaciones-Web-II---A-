@@ -1,18 +1,17 @@
-const carros=[   
+const establecimientos= [
     {
-        Placa: "BN-5423",
-		Modelo: "spark 2005"
+        idest:1,
+        nombreesta:'Moto Servicio Don Nacho',
+        descrip:'Especializados en mantenimiento de motos y cuadrones, tambien contamos con venta de repuestos.'
     },
     {
-        Placa: "BN",
-		Modelo: "sparc"
-    },
-    {
-        Placa: "GTX-3423",
-		Modelo: "CARRITO ROJO"
+        idest:2,
+        nombreesta:'Lubricadora El Chino',
+        descrip:'Mantenimiento de vehiculos livianos, Venta de respuestos y limpieza del automotor.'
     }
+
 ]
 
 
 
-module.exports = carros;
+module.exports = establecimientos;

@@ -1,5 +1,4 @@
 const express = require('express');
-const vehiculoss = require('../persistencias/arreglo');
 const route = express.Router();
 const {    
     Buscar,

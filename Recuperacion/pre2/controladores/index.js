@@ -1,17 +1,17 @@
-const express = require('express'); 
-const vehiculoss = require('../persistencias/arreglo');
+
+const establecimientos = require('../persistencias/arreglo');
 
 
 const Buscar = async(req, res) => {
     res.status(200).send({
         message: 'Los datos que se encuentran almacenados son los siguientes:',
-        datos: vehiculoss
+        datos: establecimientos
     });
 }
 
 const Guardar = async(req, res) => {
     const {...body} = req.body;
-    const save = vehiculoss.push(body)
+    const save = establecimientos.push(body)
 
     res.status(201).send({
         message:'El dato se almacenó correctamente',
