@@ -5,7 +5,6 @@
     "express": "^4.18.1",
     "express-validator": "^6.14.1",
     "mongoose": "^6.3.6",
-    "nodemon": "^2.0.16",
     "typescript": "^4.7.3"
   },
   "name": "semana9",
@@ -16,7 +15,10 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.16"
+  }
 }
