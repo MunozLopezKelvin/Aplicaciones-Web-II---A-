@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.dbConnection = void 0;
 const mongoose_1 = require("mongoose");
 const dbConnection = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -20,3 +21,4 @@ const dbConnection = () => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error("Error al conectarse a la base de datos");
     }
 });
+exports.dbConnection = dbConnection;

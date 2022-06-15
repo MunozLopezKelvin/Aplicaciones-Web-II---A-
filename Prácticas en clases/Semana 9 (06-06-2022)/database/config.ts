@@ -12,3 +12,5 @@ const dbConnection = async () =>{
     
 
 }
+
+export {dbConnection}
