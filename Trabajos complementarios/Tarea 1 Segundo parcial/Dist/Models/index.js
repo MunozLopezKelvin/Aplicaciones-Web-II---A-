@@ -1,17 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Servicio = exports.Establecimiento = exports.Trabajador = exports.Espacio = exports.Reserva = exports.Carro = exports.Cliente = void 0;
-const Clientes_1 = require("./Clientes");
-Object.defineProperty(exports, "Cliente", { enumerable: true, get: function () { return Clientes_1.Cliente; } });
-const Carros_1 = require("./Carros");
-Object.defineProperty(exports, "Carro", { enumerable: true, get: function () { return Carros_1.Carro; } });
-const Reservas_1 = require("./Reservas");
-Object.defineProperty(exports, "Reserva", { enumerable: true, get: function () { return Reservas_1.Reserva; } });
-const Trabajadores_1 = require("./Trabajadores");
-Object.defineProperty(exports, "Trabajador", { enumerable: true, get: function () { return Trabajadores_1.Trabajador; } });
+exports.Servicio = exports.Espacio = void 0;
 const Servicios_1 = require("./Servicios");
 Object.defineProperty(exports, "Servicio", { enumerable: true, get: function () { return Servicios_1.Servicio; } });
-const Establecimientos_1 = require("./Establecimientos");
-Object.defineProperty(exports, "Establecimiento", { enumerable: true, get: function () { return Establecimientos_1.Establecimiento; } });
 const Espacios_1 = require("./Espacios");
 Object.defineProperty(exports, "Espacio", { enumerable: true, get: function () { return Espacios_1.Espacio; } });

@@ -36,33 +36,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Server = void 0;
-//import express, {Router, Express} from "express";
 const express_1 = __importStar(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const Config_1 = require("./Database/Config");
 /*aqui declaramos individualmente las rutas
 con las misma estructura pero el nombre RutasCarro deben cambiarlos*/
-const Carros_1 = require("./Routes/Carros");
-const Clientes_1 = require("./Routes/Clientes");
 const Espacios_1 = require("./Routes/Espacios");
-const Establecimientos_1 = require("./Routes/Establecimientos");
-const Reservas_1 = require("./Routes/Reservas");
 const Servicios_1 = require("./Routes/Servicios");
-const Trabajadores_1 = require("./Routes/Trabajadores");
 class Server {
     constructor() {
         this.app = (0, express_1.Router)();
         this.router = (0, express_1.Router)();
         this.port = Number(process.env["PORT"]);
-        //aqui deben ir los path de cada modelo
+        //aqui se colocan los path de cada modelo
         this.paths = {
-            carros: '/api/carros',
-            clientes: '/api/clientes',
             espacios: '/api/espacios',
-            establecimientos: '/api/establecimientos',
-            reservas: '/api/reservas',
-            servicios: '/api/servicios',
-            trabajadores: '/api/trabajadores'
+            servicios: '/api/servicios'
         };
         this.conectarDb();
         this.middlewares();
@@ -80,13 +69,8 @@ class Server {
         this.app.use(express_1.default.json());
     }
     routes() {
-        this.app.use(this.paths.carros, Carros_1.router);
-        this.app.use(this.paths.clientes, Clientes_1.router);
         this.app.use(this.paths.espacios, Espacios_1.router);
-        this.app.use(this.paths.establecimientos, Establecimientos_1.router);
-        this.app.use(this.paths.reservas, Reservas_1.router);
         this.app.use(this.paths.servicios, Servicios_1.router);
-        this.app.use(this.paths.trabajadores, Trabajadores_1.router);
     }
     listen() {
         this._express.listen(this.port, () => {
