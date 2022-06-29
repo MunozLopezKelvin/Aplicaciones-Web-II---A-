@@ -23,4 +23,4 @@ Ahora bien, una vez tengamos listo nuestro proyecto y docker, procedemos a abrir
 - ```docker-compose build```
 - ```docker-compose up```
 
-```Comentario: Debemos tener en cuenta que el .env es más utilizado para escenarios de desarrollo, mientras que el docker-compose está enfocado más para un área de producción. ```
+>Comentario: Debemos tener en cuenta que el .env es más utilizado para escenarios de desarrollo, mientras que el docker-compose está enfocado más para un área de producción.
