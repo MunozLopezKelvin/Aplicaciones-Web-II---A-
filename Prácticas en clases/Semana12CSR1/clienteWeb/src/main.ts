@@ -47,7 +47,7 @@ const consultar = document.querySelector<HTMLButtonElement>('#consultar')!
 
 const cuerpo = document.querySelector<HTMLDivElement>('#cuerpo')!
 
-nuevo?.addEventListener('click', () =>{
+nuevo.addEventListener('click', () =>{
   id.value=""
   estado.value=""
   nombre.value=""
@@ -82,13 +82,55 @@ consultar.addEventListener('click', async () => {
 
       document.querySelectorAll('.boton').forEach( (ele:Element) =>{
 
-        (ele as HTMLButtonElement).addEventListener('click',() =>
+        ele.addEventListener('click', async () =>
         {
-          //httpAxios.get(`productos/`)
-
+         const {data} = await httpAxios.get<Producto>(`productos/${(ele as HTMLButtonElement).value}`)
+          console.log(data);
+          nombre.value = data.nombre;
+          precio.value = data.precio.toString();
+          costo.value = data.costo.toString();
+          minimo.value = data.minimo.toString();
+          stock.value = data.stock.toString();
+          estado.value = data.estado!.toString();
+          id.value = data._id!;        
          })
 
       })
 
 
 });
+
+const asignarValores = ()=>{
+  const data:Producto = {
+    nombre:nombre.value,
+    costo:Number(costo.value),
+    precio:Number(precio.value),
+    minimo:Number(minimo.value),
+    stock:Number(stock.value),
+ 
+  }
+  return data;
+}
+
+grabar.addEventListener('click', async () =>{
+  const data = asignarValores()
+  //.trim() sirve para eliminar los espacios a los lados del dato ingresado
+  if(id.value.trim().length > 0)
+  {
+    const respproducto:Producto = await (await httpAxios.put<Producto>(`productos/${id.value}`, data)).data
+    console.log(`el producto ${respproducto.nombre} fue modificado con éxito`)
+    return;
+  }
+  try {
+    const respproducto:Producto = await (await httpAxios.post<Producto>(`productos`, data)).data
+    console.log(`El producto ${respproducto.nombre} fue insertado con éxito`);
+  } catch (error) {
+    if(axios.isAxiosError(error)) {
+      console.log(`Error en axios`);
+    }      
+    console.log(error);
+    
+     
+  }
+  
+})
