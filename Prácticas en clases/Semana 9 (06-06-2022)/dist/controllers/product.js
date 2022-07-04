@@ -20,10 +20,10 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.crearProductos = exports.obtenerProducto = exports.obtenerProductos = void 0;
+exports.crearProducto = exports.obtenerProducto = exports.obtenerProductos = void 0;
 const models_1 = require("../models");
 const obtenerProductos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { limite = 10, desde = 0 } = req.query;
+    const { limite = '10', desde = '0' } = req.query;
     const query = { estado: true };
     const [total, productos] = yield Promise.all([
         models_1.Producto.countDocuments(query),
@@ -31,28 +31,28 @@ const obtenerProductos = (req, res) => __awaiter(void 0, void 0, void 0, functio
             .skip(Number(desde))
             .limit(Number(limite))
     ]);
-    res.json([
+    res.json({
         total,
         productos
-    ]);
+    });
 });
 exports.obtenerProductos = obtenerProductos;
 const obtenerProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const producto = yield models_1.Producto.findById(id);
+    const producto = (yield models_1.Producto.findById(id));
     res.json(producto);
 });
 exports.obtenerProducto = obtenerProducto;
-const crearProductos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const crearProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const _a = req.body, { estado } = _a, body = __rest(_a, ["estado"]);
-    const productoExiste = yield models_1.Producto.findOne({ nombre: body.nombre });
-    if (productoExiste) {
-        res.status(400).json({
-            message: `El producto ${body.nombre} ya existe ${productoExiste.nombre}`
+    const existeProducto = yield models_1.Producto.findOne({ nombre: body.nombre });
+    if (existeProducto) {
+        return res.status(400).json({
+            message: `El producto ${body.nombre} ya existe!`
         });
     }
     const producto = new models_1.Producto(body);
     const productoNuevo = yield producto.save();
-    res.status(201).json(productoNuevo);
+    return res.status(201).json(productoNuevo);
 });
-exports.crearProductos = crearProductos;
+exports.crearProducto = crearProducto;

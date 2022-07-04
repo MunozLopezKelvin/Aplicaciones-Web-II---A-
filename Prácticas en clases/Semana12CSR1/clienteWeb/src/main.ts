@@ -1,6 +1,8 @@
 import './style.css'
 import axios from 'axios';
 import {IResProducto, Producto} from './interfaces/IProducto'
+
+
 const app = document.querySelector<HTMLDivElement>('#app')!
 
 
@@ -8,12 +10,14 @@ const app = document.querySelector<HTMLDivElement>('#app')!
 const httpAxios = axios.create({
   baseURL: `http://localhost:2500/v1/sextoa/api/`
 });
+
+//Region
 const etiqueta = document.createElement("label");
 etiqueta.textContent = `ID`
 const input = document.createElement("input");
 input.id = "id"
-
 etiqueta.htmlFor="id"
+//endregion
 
 app.appendChild(etiqueta);
 app.appendChild(input);
@@ -72,7 +76,9 @@ consultar.addEventListener('click', async () => {
         const row = tabla.insertRow()
         const celda = row.insertCell()
         celda.innerHTML 
-        = ` <button calss="boton" value='${producto._id}' ${producto.nombre} </button>`
+        = ` <button calss="boton" value='${producto._id}'>
+        ${producto.nombre} </button>`
+        
         const celda2 = row.insertCell()
         celda2.innerHTML=`${producto.precio}`
       }

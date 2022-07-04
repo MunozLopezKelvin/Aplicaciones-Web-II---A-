@@ -3,7 +3,7 @@ import { check } from 'express-validator'
 
 import { Producto } from '../controllers'
 
-const {crearProductos, obtenerProducto, obtenerProductos} = Producto
+const {crearProducto, obtenerProducto, obtenerProductos} = Producto
 
 import funciones from '../middleware'
 
@@ -20,7 +20,7 @@ router.get('/:id'
 router.post('/'
 , check('nombre','El nombre debe ser completado').not().isEmpty()
 , validarCampos
-, crearProductos)
+, crearProducto)
 
 
 export { router }
