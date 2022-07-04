@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+const express_validator_1 = require("express-validator");
+const Index_1 = require("../Controllers/Index");
+const { ObtenerEspacios, ObtenerEspacio, CrearEspacio, ActualizarEspacio, BorrarEspacio } = Index_1.Espacio;
+const router = (0, express_1.Router)();
+exports.router = router;
+router.get('/', ObtenerEspacios);
+router.get('/:ESPACIO_ID', ObtenerEspacio);
+router.post('/', [(0, express_validator_1.check)('ESPACIO_ID', 'La ID es obligatorio').not().isEmpty()], CrearEspacio);
+router.put('/:ESPACIO_ID', ActualizarEspacio);
+router.delete('/:ESPACIO_ID', BorrarEspacio);
