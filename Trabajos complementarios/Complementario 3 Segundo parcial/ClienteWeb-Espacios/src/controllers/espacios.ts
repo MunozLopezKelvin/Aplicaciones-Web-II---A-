@@ -82,6 +82,7 @@ const consul = async ()=>{
        const eliminado = data
        console.log(data);
        console.log(`Espacio eliminado => ${eliminado.ESPACIO_ID}`);
+       swal("Eliminado!", `Espacio con el ID ${eliminado.ESPACIO_ID} eliminado`, "success");
        consul();
     /* ********************** FIN ELIMINAR ************************** */
     })
