@@ -1,0 +1,45 @@
+<div class="container mt-3">
+
+    <div class="row">
+        <div class="col">
+            <p class="h3 fw-bold text-danger">
+                Agregar Exonerado
+            </p>
+            <p class="fst-italic">Agrega un nuevo exonerado al gestor</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Creación de nuevo técnico formulario -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form (submit)="agregarExonerado()">
+                <div class="mb-2">
+                    <input required="true" [(ngModel)]="exonerado.id" name="id" type="text" class="form-control" placeholder="id del exonerado">
+                </div>
+                <div class="mb-2">
+                    <input required="true" [(ngModel)]="exonerado.fecha" name="fecha" type="text" class="form-control" placeholder="fecha del exonerado">
+                </div>
+                <div class="mb-2">
+                    <input required="true" [(ngModel)]="exonerado.iduser" name="iduser" type="text" class="form-control" placeholder="iduser del exonerado">
+                </div>
+                <div class="mb-2">
+                    <input required="true" [(ngModel)]="exonerado.asignatura" name="asignatura" type="text" class="form-control" placeholder="asignatura del exonerado">
+                </div>
+                <div class="mb-2">
+                    <input required="true" [(ngModel)]="exonerado.nota" name="nota" type="number" class="form-control" placeholder="nota del exonerado">
+                </div>
+                <div class="mb-2">
+                    <input required="true" [(ngModel)]="exonerado.estado" name="estado" type="number" class="form-control" placeholder="estado del exonerado">
+                </div>
+                <div class="mb-2">
+                    <input type="submit" class="btn btn-danger" value="Registrar">
+                    <a routerLink="/" class="btn btn-dark ms-2">Regresar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

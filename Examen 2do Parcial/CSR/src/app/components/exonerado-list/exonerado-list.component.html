@@ -1,0 +1,38 @@
+<table class="table table-striped mt-3 mx-3">
+    <thead>
+        <tr>
+            <th scope="col">Num prest</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Id Solicitante</th>
+            <th scope="col">Num Horas</th>
+            <th scope="col">Jugadores</th>
+            <th scope="col">Tipo Cancha</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let item of exonerado">
+        <ng-container *ngIf="item.estado==1">
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.fecha}}</td>
+            <td>{{item.iduser}}</td>
+            <td>{{item.numhoras}}</td>
+            <td>{{item.jugador}}</td>
+            <td>{{item.tipocancha}}</td>
+            <td>{{item.estado}}</td>
+            <td>
+                <a routerLink="/exonerado/editar/{{item.iduser}}" class="btn btn-warning my-1 mx-2">
+                    <i class="fa fa-pen"></i>
+                </a>
+                <button (click)="eliminarExonerado(item.iduser)" class="btn btn-danger my-1 mx-2">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </ng-container>
+    </tbody>
+</table>
+<a href="http://localhost:4000/exonerado/inicio" class="btn btn-warning my-1 mx-3">
+    <i class="fa fa-eye"></i> Movimientos
+</a>
